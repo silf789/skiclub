@@ -1,0 +1,241 @@
+html
+{
+    height: 100%;
+}
+.leftblock
+{
+    height: 100%;
+}
+.mainmenublock
+{
+	/*background: #52D795;*/
+    background: #02a3d7;
+	color: #fff;
+	/*margin-bottom: 30px;*/
+    height: 100%; !important;
+
+}
+.mainmenublock a
+{
+    background: #02a3d7;
+    color: #fff;
+    text-decoration: none;
+}
+.mainmenublock ul li
+{
+	font-size: 16px;
+	list-style: none;
+
+}
+.mainmenublock ul 
+{
+	padding-bottom: 10px;
+}
+.maincontent
+{
+    position: relative;
+}
+.newsheader
+{
+	color: #02a3d7;
+}
+.newsrightblock
+{
+    color: #5f5f5f;;
+}
+.loginform
+{
+	padding-left: 40px;
+}
+.loginform input
+{
+	margin-bottom: 5px;
+	width: 150px;
+	color: #000
+}
+.reg
+{
+	width: 150px;
+	border: 2px solid;
+	border-color:#fff;
+	text-align: center;
+	margin-bottom: 5px;
+}
+.infoblock
+{
+	padding-left: 40px;
+	padding-top: 10px;
+}
+.mainnewsblock
+{
+	color:#5f5f5f;
+	margin-top: 20px;
+}
+.mainpage 
+{
+	padding-top: 20px;
+	margin:auto;
+	text-align: center;
+}
+.mainpageicon
+{
+	text-align: center;
+	padding-top: 25px;
+	border-radius: 50%;
+	height: 120px;
+	width: 120px;
+	/*background: #5f5f5f;*/
+    background: #414C65;
+	color: #f2f2f2;
+	margin-bottom: 20px;
+}
+.mainpage :hover
+{
+    border-radius: 50%;
+    background: #f2f2f2;
+    color: #414C65;
+    /*color: #5f5f5f;*/
+
+}
+.fotoblock img
+{
+	width: 100%;
+}
+.honor
+{
+	border:3px solid;
+	border-color:#02a3d7;
+	background-color: #02a3d7;
+	color: #fff;
+	text-align: center;
+}
+.honoricon
+{
+	text-align: center;
+	padding-top: 20px;
+	border-radius: 50%;
+	height: 80px;
+	width: 80px;
+	background: #02a3d7;
+	color: #f2f2f2;
+	margin-bottom: 20px;
+}
+.honortext
+{
+	padding-top: 20px;
+	margin-left: -40px;
+}
+.fotoblock img
+{
+	opacity: 0.3;
+	background: #f0f0f0;
+}
+.allcontentref
+ {
+     text-decoration: none !important;
+ }
+a .allcontent
+{
+    margin-top: 10px;
+    text-align: center;
+    background: #02a3d7;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.allcontentreflist
+{
+    text-decoration: none !important;
+    color:#5f5f5f;
+}
+.workoutcontent
+{
+    margin-top: 10px;
+    text-align: center;
+    background: rgba(155, 255, 153, 0.36);
+    border:5px solid;
+    border-color:#02a3d7;
+    color:#02a3d7;
+    text-decoration: none;
+    font-size: 14px;
+    font-size: 18px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.albums
+{
+    margin-top:15px;
+
+    margin-left: 10px;
+  /*  padding-left: 0px;*/
+    color: #000000;
+    overflow: hidden;
+    text-align: center;
+}
+.foto
+{
+    padding-left: 0px;
+    position: relative;
+    z-index: 0;
+    border:3px solid;
+    border-color: #02a3d7;
+    margin-bottom: 15px;
+
+}
+.album-name
+{
+    position: absolute;
+    z-index: 1;
+    top:70%;
+    left: 10%;
+    width: 80%;
+    margin: auto;
+    color: #ffffff;
+    background:#02a3d7;
+    opacity: 0.9;
+    border: 3px solid;
+    border-color: #ffffff;
+}
+.fotocarousel
+{
+    text-align: center;
+    height: 500px;
+}
+/*.backfotobutton
+{
+    background: #52D795;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 50%;
+    color: #ffffff;
+}*/
+.backfotobutton
+{
+    background: #02a3d7;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+}
+.backfotobutton a
+{
+
+    color: #ffffff;
+
+}
+hr
+{
+    background-color: #265a88;
+    height: 1px;
+}
