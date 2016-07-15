@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Cathegories;
 use app\models\Content;
 use app\models\Albums;
 use app\models\Foto;
@@ -84,11 +85,15 @@ class MainController extends BehaviorsController
     public function actionContent()
     {
         $cathegory=Yii::$app->getRequest()->get('cathegory');
+        $cathgegoryId = Cathegories::find()
+            ->select(['id'])
+            ->where(['cathegory' => $cathegory])
+            ->one();
         $id=Yii::$app->getRequest()->get('id');
         if ($id==null){
             $query = Content::find()
                 ->select(['id','title', 'text', 'cathegory'])
-                ->where(['cathegory' => $cathegory])
+                ->where(['cathegory' => $cathgegoryId['id']])
                 ->orderBy('id DESC')
                 ->one();
         }
@@ -101,7 +106,7 @@ class MainController extends BehaviorsController
         }
         $queryAll =  Content::find()
             ->select(['title', 'id', 'cathegory'])
-            ->where(['cathegory' => $cathegory])
+            ->where(['cathegory' => $cathgegoryId['id']])
             ->orderBy('id DESC')
             ->limit(10)
             ->all();
