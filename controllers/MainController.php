@@ -15,6 +15,14 @@ use Yii;
 
 class MainController extends BehaviorsController
 {
+    public function getCathegoryIdByName($name)
+    {
+        $cathegoryId = Cathegories::find()
+            ->select(['id'])
+            ->where(['cathegory' => $name])
+            ->one();
+        return $cathegoryId->id;
+    }
     public function actionIndex()
     {
         $queryAll =  Content::find()
@@ -84,16 +92,13 @@ class MainController extends BehaviorsController
     }
     public function actionContent()
     {
-        $cathegory=Yii::$app->getRequest()->get('cathegory');
-        $cathgegoryId = Cathegories::find()
-            ->select(['id'])
-            ->where(['cathegory' => $cathegory])
-            ->one();
+        $cathegory = Yii::$app->getRequest()->get('cathegory');
+        $cathegoryId = $this->getCathegoryIdByName($cathegory);
         $id=Yii::$app->getRequest()->get('id');
         if ($id==null){
             $query = Content::find()
                 ->select(['id','title', 'text', 'cathegory'])
-                ->where(['cathegory' => $cathgegoryId['id']])
+                ->where(['cathegory' => $cathegoryId])
                 ->orderBy('id DESC')
                 ->one();
         }
@@ -106,7 +111,7 @@ class MainController extends BehaviorsController
         }
         $queryAll =  Content::find()
             ->select(['title', 'id', 'cathegory'])
-            ->where(['cathegory' => $cathgegoryId['id']])
+            ->where(['cathegory' => $cathegoryId])
             ->orderBy('id DESC')
             ->limit(10)
             ->all();
@@ -114,6 +119,7 @@ class MainController extends BehaviorsController
         return $this->render('content',[
             'row' => $query,
             'list' => $queryAll,
+            'cathegory' => $cathegory
         ]);
     }
     public function actionAll()
@@ -179,8 +185,10 @@ class MainController extends BehaviorsController
     }
     public function actionAbout()
     {
+        $cathegoryId = $this->getCathegoryIdByName('about');
         $about = Content::find()
-            ->where(['cathegory'=> 'about'])
+            ->select(['id','title', 'text', 'cathegory'])
+            ->where(['cathegory'=> $cathegoryId])
             ->one();
         return $this->render('about',[
             'about' => $about
