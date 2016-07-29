@@ -15,7 +15,7 @@ use yii\helpers\Url;
         foreach($albums as $list) {
             ?>
                 <div class="col-md-6">
-                    <a href="<?=Url::toRoute(['view-foto','albid' => $list->id])?>">
+                    <a href="<?=Url::toRoute(['viewfoto','albid' => $list->id])?>">
                     <div class="foto">
                         <?php
                             $url=Yii::getAlias('@web/foto/thumbs/'.$list->id.'.jpg');

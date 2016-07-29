@@ -75,8 +75,5 @@ use yii\helpers\Url;
 </div>
 <div class="col-md-3 fotoblock">
 
-    <p><img src="http://skiclub.bsu.by/img/demoimg1.jpg"></p>
-    <p><img src="https://pp.vk.me/c307603/v307603459/6aa8/F_N75PmZqsA.jpg"></p>
-    <p><img src="http://skiclub.bsu.by/albums/3/2.jpg"></p>
 
 </div>

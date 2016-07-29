@@ -12,7 +12,7 @@ use yii\helpers\Url;
     <div class="row">
         <div class="col-md-6">
             <?=Html::a('<div class=workoutcontent>Расписание тренировок</div>',
-                Url::toRoute(['shedule']), ['class' => 'allcontentref']
+                Url::toRoute(['content','cathegory'=>'shedule']), ['class' => 'allcontentref']
             );
             ?>
         </div>

@@ -7,7 +7,7 @@ class m160221_095000_drop_user_table extends Migration
 {
     public function up()
     {
-
+        $this->dropTable('user');
     }
 
     public function down()

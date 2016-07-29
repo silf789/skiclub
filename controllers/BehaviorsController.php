@@ -41,14 +41,21 @@ class BehaviorsController extends Controller
                     [
                         'allow' => true,
                         'controllers' => ['main'],
+                        'actions' => ['workouts'],
+                        'verbs' => ['GET'],
+                        'roles' => ['@']
+                    ],
+                    [
+                        'allow' => true,
+                        'controllers' => ['main'],
                         'actions' =>[
                             'index',
                             'content',
                             'foto',
                             'video',
-                            'workouts',
                             'all',
-                            'about'
+                            'about',
+                            'viewfoto'
                         ],
                         'verbs' => ['GET','POST'],
 

@@ -23,6 +23,14 @@ class MainController extends BehaviorsController
             ->one();
         return $cathegoryId->id;
     }
+    public function getCathegoryNameById($id)
+    {
+        $cathegoryName = Cathegories::find()
+            ->select(['cathegory'])
+            ->where(['id' => $id])
+            ->one();
+        return $cathegoryName->cathegory;
+    }
     public function actionIndex()
     {
         $queryAll =  Content::find()
@@ -30,6 +38,11 @@ class MainController extends BehaviorsController
             ->orderBy('id DESC')
             ->limit(3)
             ->all();
+        for ($i = 0; $i < 3; $i++)
+        {
+            $cathegory = $queryAll[$i]->cathegory;
+            $queryAll[$i]->cathegory = $this->getCathegoryNameById($cathegory);
+        }
         return $this->render('index',[
             'list' => $queryAll,
         ]);
@@ -39,6 +52,7 @@ class MainController extends BehaviorsController
         $model = new RegForm();
         if($model->load(Yii::$app->request->post()) && $model->validate())
         {
+
             if(($user = $model->reg()) instanceof User)
             {
                 if($user->status === User::STATUS_ACTIVE)
@@ -51,8 +65,6 @@ class MainController extends BehaviorsController
             }
             else
             {
-                var_dump($user);
-                die('kasdjhfj');
                 Yii::$app->session->setFlash('error','Возникла ошибка при регистрации');
                 Yii::error('Возникла ошибка при регистрации');
                 return $this->refresh();
@@ -125,9 +137,10 @@ class MainController extends BehaviorsController
     public function actionAll()
     {
         $cathegory=Yii::$app->getRequest()->get('cathegory');
+        $cathegoryId = $this->getCathegoryIdByName($cathegory);
         $query = Content::find()
             ->select(['id','title', 'cathegory','metad'])
-            ->where(['cathegory' => $cathegory])
+            ->where(['cathegory' => $cathegoryId])
             ->orderBy('id DESC')
             ->all();
         return $this->render('all',[
@@ -150,11 +163,12 @@ class MainController extends BehaviorsController
             ->select(['id','name','thumb'])
             ->orderBy('id DESC')
             ->all();
+
         return $this->render('foto',[
             'albums' => $albums
         ]);
     }
-    public function actionViewFoto()
+    public function actionViewfoto()
     {
         $albid=Yii::$app->getRequest()->get('albid');
         $albname=Albums::find()
@@ -163,9 +177,9 @@ class MainController extends BehaviorsController
             ->one();
         $fotos = Foto::find()
             ->select(['id','ref'])
-            ->where(['album'=>$albname->name])
+            ->where(['alb_id'=>$albid])
             ->all();
-        return $this->render('view-foto',[
+        return $this->render('viewfoto',[
             'fotos' => $fotos,
             'albname'=>$albname->name,
             'albid'=> $albid

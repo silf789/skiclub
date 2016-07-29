@@ -20,12 +20,12 @@ use yii\helpers\Url;
         echo '<p>';
         echo Html::a(
             $info->title,
-            Url::toRoute(['content', 'cathegory' => $info->cathegory, 'id' => $info->id,]),
+            Url::toRoute(['content', 'cathegory' => $cathegory, 'id' => $info->id,]),
             ['class' => 'newsrightblock']);
         echo '</p>';
     }
     echo Html::a('<div class=allcontent>все записи</div>',
-        Url::toRoute(['all', 'cathegory' => $info->cathegory]), ['class' => 'allcontentref']
+        Url::toRoute(['all', 'cathegory' => $cathegory]), ['class' => 'allcontentref']
     );
     ?>
 </div>
